@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+ {% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+{{ form.media }}
+
+
+ <div class="container">
+
+  {% crispy form %}
+
+    {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible col-12 mx-1" role="alert">
+        <div id="form_errors">
+            {% for key, value in form.errors.items %}
+                <span class="fieldWrapper">
+                    {{ key }}:{{ value }}
+                </span>
+            {% endfor %}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+
+ </div>
+
+{% endblock %}
+{% block foot-javascript %}
+<script>
+
+    // On affiche le calendrier lorsqu'on clique sur le champ date de naissance
+    $('#id_dateExpiration').click(function(){
+        $(this).parent().data("DatePickerInput").show();
+    });
+    // On teste la valeur de la date et on la force à vide si elle est mauvaise
+    $('#id_dateExpiration').change(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var val = $(this).val();
+        var format = new RegExp("^\\d{2}\/\\d{2}\/\\d{4}$");
+        if(!format.test(val)) {
+            $(this).val("");
+        }
+    });
+    // Afficher l'onglet suivant en cliquant sur le bouton suivant
+    $('.btnNext').click(function(){
+        $('.nav-tabs > .active + li a').trigger('click');
+        $(".nav-tabs + .tab-content").find(":input:visible:first").focus();
+    });
+    // Afficher l'onglet précédent en cliquant sur le bouton précédent
+    $('.btnPrevious').click(function(){
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+        $(".nav-tabs + .tab-content").find(":input:visible:first").focus();
+    });
+});
+</script>
+
+{% endblock %}
+

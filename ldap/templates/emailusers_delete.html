@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Etes-vous sûr de vouloir supprimer le compte</p>
+     <p>EMAIL {{mail}}</p>
+     <h1>Suppression Compte {{uid}}</h1>
+
+     <p>Merci de confirmer la suppression de : {{ displayname }}</p>
+
+     <form action="" method="POST">
+     {% csrf_token %}
+     <input type="submit" value="Confirmer">
+</form>
+{% endblock%}

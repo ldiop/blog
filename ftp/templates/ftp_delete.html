@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Etes-vous sûr de vouloir supprimer le compte</p>
+     <p>{{ item.ftpUsername }}</p>
+     <h1>Suppression Compte Ftp</h1>
+
+     <p>Are you sure you want to delete the author: {{ item.pk }}?</p>
+
+     <form action="" method="POST">
+     {% csrf_token %}
+     <input type="submit" value="Confirmer">
+</form>
+
+
+
+{% endblock %}

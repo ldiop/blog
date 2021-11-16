@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+{% block content %}
+
+            <header class="page-header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                 <div class="container-fluid">
+                     <a class="navbar-brand" href="#"><h2>Comptes FTP</h2></a>
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarText">
+                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                         <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#"></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link active" href="#"></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link active" href="#"></a>
+                         </li>
+                         </ul>
+
+                         <form class="form-inline">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                         </form>
+                     </div>
+                 </div>
+            </nav>
+        </header>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<div class="input-group">
+
+						<thead>
+							<tr class="row100" head>
+								<th class="column100 column2" data-column="column2">Compte</th>
+								<th class="column100 column3" data-column="column3">Nom</th>
+								<th class="column100 column4" data-column="column4">Societé</th>
+                                <th class="column100 column6" data-column="column6">Actif-Inactif</th>
+								<th class="column100 column8" data-column="column8">Date_Expiration</th>
+							</tr>
+						</thead>
+						  {% for i in comptes %}
+                        <tbody>
+
+
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1"><a href="{% url ''%}">{{ i.ftpUsername}}</a></td>
+								<td class="column100 column2" data-column="column2">{{i.nom }}</td>
+								<td class="column100 column3" data-column="column3">{{ i.societe}}</td>
+								<td class="column100 column6" data-column="column6"><a href="">{{ i.actif }}</a></td>
+								<td class="column100 column8" data-column="column8"><a href="">{{ i.dateExpiration}}</a></td>
+							</tr>
+						</tbody>
+                        {% endfor %}
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+{%endblock%}

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="page-header">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                 <div class="container-fluid">
+                     <a class="navbar-brand" href="#"><h2><font color="#FFFFFF">Compte FTP</font></h2></a>
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarText">
+                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                         <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#"></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link active" href="#"></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link active" href="#"></a>
+                         </li>
+                         </ul>
+
+                         <form class="form-inline">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                         </form>
+                     </div>
+                 </div>
+            </nav>
+          </div>
+        </header>
+        <br>
+       <div class="container">
+
+          <div class="tm-block-col tm-col-account-settings">
+            <div class="tm-bg-primary-dark tm-block tm-block-settings">
+                <h4 class="tm-block-title"><font color="#BABABA">{{ userdetail.societe }}</font></h4>
+              <form action="" class="tm-signup-form row">
+                <div class="form-group col-lg-6">
+                  <label for="name">Username</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value="{{userdetail.ftpUsername}}"
+                    readonly
+                    class="form-control validate"
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Nom</label>
+                  <input
+                    id="email"
+                    name="email"
+                    value="{{userdetail.nom}}"
+                    readonly
+                    type="text"
+                    class="form-control validate"
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="societe">Entite</label>
+                  <input
+                    id="societe"
+                    name="societe"
+                    type="text"
+                    value="{{userdetail.societe}}"
+                    readonly
+                    class="form-control validate"
+                  />
+
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="text"
+                    value="{{userdetail.email}}"
+                    readonly
+                    class="form-control validate"
+                  />
+                </div>
+
+
+                <div class="form-group col-lg-6">
+                  <label for="phone">Telephone</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    value="{{userdetail.telephone}}"
+                    readonly
+                    type="tel"
+                    class="form-control validate"
+                  />
+                </div>
+
+
+                <div class="form-group col-lg-6">
+                  <label for="dtcrea">DateCreation</label>
+                  <input
+                    id="dtcrea"
+                    name="dtcrea"
+                    value="{{userdetail.dateCreation}}"
+                    readonly
+                    type="tel"
+                    class="form-control validate"
+                  />
+                </div>
+
+                <div class="form-group col-lg-6">
+                  <label for="dtexpire">DateExpiration</label>
+                  <input
+                    id="dtexpire"
+                    name="dtexpire"
+                    value="{{userdetail.dateExpiration}}"
+                    readonly
+                    type="text"
+                    class="form-control validate"
+                  />
+                </div>
+              <div class="form-group col-lg-6">
+                  <label for="hmdir">Repertoire</label>
+                  <input
+                    id="hmdir"
+                    name="hmdir"
+                    type="text"
+                    value="{{userdetail.ftpHomeDir}}"
+                    readonly
+                    class="form-control validate"
+                  />
+                </div>
+              <div class="form-group col-lg-6">
+                  <label for="phone">actif</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    value="{{userdetail.actif}}"
+                    readonly
+                    type="text"
+                    class="form-control validate"
+                  />
+                </div>
+              </div>
+              </div>
+
+
+                <div class="form-group col-lg-4">
+                  <label class="tm-hide-sm">&nbsp;</label>
+                  <button
+                    type="submit"
+                    class="btn btn-warning btn-block text-uppercase"
+                  ><a href="{% url 't_user_edit' pk=userdetail.pk %}">
+                      Modifier</a>
+                  </button>
+                </div>
+                <div class="col-lg-4">
+                  <button
+                    type="submit"
+                    class="btn btn-danger btn-block text-uppercase"
+                  ><a href="{% url 't_user_delete' pk=userdetail.pk %}">
+                    Supprimer</a>
+                  </button>
+                    <br>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div></html>
+{% endblock %}

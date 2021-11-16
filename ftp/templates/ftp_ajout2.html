@@ -1,0 +1,41 @@
+<html>
+
+{% load crispy_forms_tags %}
+
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-2 mb-0">
+        {{ form.nom|crispy }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.ftpUsername|crispy }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.ftpPassword|crispy }}
+      </div>
+      <div class="form-group col-md-2 mb-0">
+        {{ form.dateExpiration|crispy }}
+      </div>
+      <div class="form-group col-md-2 mb-0">
+        {{ form.actif|crispy }}
+      </div>
+
+      <div class="form-group col-md-2 mb-0">
+        {{ form.societe|crispy }}
+      </div>
+
+
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+
+</body>
+</html>
